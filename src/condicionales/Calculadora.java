@@ -2,6 +2,21 @@ package condicionales;
 
 public abstract class Calculadora {
 
+	public static boolean esPositivo(int valor) {
+		if (valor > 0)
+			return true;
+		else
+			return false;
+	}
+
+	public static boolean esNegativo(int valor) {
+		return valor < 0;
+	}
+
+	public static boolean esCero(int valor) {
+		return valor == 0;
+	}
+
 	public static int calcularMayor(int a, int b) {
 		// SI a>b
 		// return a
@@ -21,11 +36,61 @@ public abstract class Calculadora {
 			return false;
 	}
 
-	public static boolean esPar(int a) {
+	public static int calcularMenor(int a, int b) {
+		if (a < b)
+			return a;
+		else
+			return b;
+	}
+
+	public static String esParOImpar(int a) {
 		if (a % 2 == 0)
+			return "Par";
+		else
+			return "Impar";
+	}
+
+	public static boolean esMultiploDeCinco(int a) {
+		if (a % 5 == 0)
 			return true;
 		else
 			return false;
+		// Otra forma: return a%5==0
+	}
+
+	public static boolean esMultiploDeDiez(int a) {
+		if (a % 10 == 0)
+			return true;
+		else
+			return false;
+	}
+
+	public static boolean esDivisiblePorDosYPorTres(int a) {
+		if (a % 2 == 0 && a % 3 == 0)
+			return true;
+		else
+			return false;
+	}
+
+	public static int calcularMayor(int a, int b, int c) {
+		/**
+		 * Solución válida:
+		 * 
+		 * int mayorIntermedio=calcularMayor(a, b); return
+		 * calcularMayor(mayorIntermedio, b);
+		 */
+		int valorIntermedio;
+		int valorFinal;
+		if(a>b)
+			valorIntermedio=a;
+		else
+			valorIntermedio=b;
+		if(valorIntermedio>c)
+			valorFinal=valorIntermedio;
+		else
+			valorFinal=c;
+		return valorFinal;
+		
 	}
 
 	public static boolean esMayorDeEdad(int edad) {
@@ -41,26 +106,23 @@ public abstract class Calculadora {
 		else
 			return false;
 		/*
-		 * if (anio % 4 == 0 && anio % 100 != 0) 
-		 * 	return true; 
-		 * else if (anio % 400 == 0)
-		 * 	return true; 
-		 * else 
-		 * 	return false;
+		 * if (anio % 4 == 0 && anio % 100 != 0) return true; else if (anio % 400 == 0)
+		 * return true; else return false;
 		 */
 	}
-	
+
 	/**
-	 * Recibe un número entre un 0 y un 10 y devuelve la calificación que le corresponde
-	 * a cada número (por ejemplo: menor que cinco es "suspenso"; entre cinco y siete es "bien";
-	 * entre siete y nueve es "notable"; entre nueve y 10 es "sobresaliente"; igual a 10 es "matrícula
-	 * de honor".
+	 * Recibe un número entre un 0 y un 10 y devuelve la calificación que le
+	 * corresponde a cada número (por ejemplo: menor que cinco es "suspenso"; entre
+	 * cinco y siete es "bien"; entre siete y nueve es "notable"; entre nueve y 10
+	 * es "sobresaliente"; igual a 10 es "matrícula de honor".
+	 * 
 	 * @param calificacionNumerica Calificación
 	 */
 	public static String calificacionEscrita(int calificacionNumerica) {
-		String calificacion="pendiente!";
-		
-		return calificacion;		
+		String calificacion = "pendiente!";
+
+		return calificacion;
 	}
 
 	/**
