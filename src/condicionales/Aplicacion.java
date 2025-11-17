@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Aplicacion {
 
 	public Aplicacion() {
-		System.out.println(Calculadora.esBisiesto(2029));
+		System.out.println(Calculadora.checkPassword("hola"));
 	}
 
 	/**
