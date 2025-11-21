@@ -9,124 +9,71 @@ public class Aplicacion {
 	}
 	
 	public void mostrarMenu() {
+		//Declaro variables
+		Scanner s=new Scanner(System.in);
+		int opcion;
+		//Muestro menú
+		System.out.println("Introduce un número del 1 al 5:");
+		System.out.println("1) Calcular el mayor de dos números.");
+		System.out.println("2) Hace una cosa.");
+		System.out.println("3) Hace una cosa.");
+		System.out.println("4) Hace una cosa.");
+		System.out.println("5) Hace una cosa.");
+		//Pido por teclado la opción
+		opcion=s.nextInt();
+		//Evalúo la opción
+		switch(opcion) {
+		case 1: // Mayor entre dos números
+			System.out.println("Introduce un número:");
+			int a=s.nextInt();
+			System.out.println("Introduce otro número:");
+			int b=s.nextInt();
+			int mayor=Calculadora.calcularMayor(a, b);
+			System.out.println("El mayor número entre "+a+" y "+b+" es "+mayor);
+			break;
+		case 2: // Menor entre dos números
+			System.out.println("Introduce un número:");
+			a=s.nextInt();
+			System.out.println("Introduce otro número:");
+			b=s.nextInt();
+			int menor=Calculadora.calcularMenor(a, b);
+			System.out.println("Opción incorrecta.");
+			break;
+		default:
+			System.out.println("Opción incorrecta.");
+		}
+		
+	}
+	
+	public void mostrarMenuAntiguo() {
 		System.out.println("Escoge una opción:");
 		System.out.println("1) Introducir un mes (número entero) y mostrar su nombre.");
-		System.out.println("1) Introducir un mes (número entero) y mostrar cuántos días tiene.");
+		System.out.println("2) Introducir un mes (número entero) y mostrar cuántos días tiene.");
+		System.out.println("3) Introducir un mes (cadena, con la primera letra en mayúscula) y mostrar cuántos días tiene.");
 		Scanner s=new Scanner(System.in);
 		int opcionEscogida=s.nextInt();
 		switch(opcionEscogida) {
 		case 1:
 			System.out.println("Introduce un número entre el 1 y el 12.");
 			int mes=s.nextInt();
-			System.out.println(getNombreMes(mes));
-			break;
-		default:
-			System.out.println("Opción incorrecta.");
-		}
-	}
-	
-	public int getDiasMes(String mes) {
-		switch(mes) {
-		case "Enero":
-			return 31;
-		case "Febrero":
-			return 28;
-		case "Marzo":
-			return 31;
-		case "Abril":
-			return 30;
-		case "Mayo":
-			return 31;
-		case "Junio":
-			return 30;
-		case "Julio":
-			return 31;
-		case "Agosto":
-			return 31;
-		case "Septiembre":
-			return 30;
-		case "Octubre":
-			return 31;
-		case "Noviembre":
-			return 30;
-		case "Diciembre":
-			return 31;
-		default: 
-			return -1;
-		}
-	}
-	
-	public String getNombreMes(int mes) {
-		switch(mes) {
-		case 1:
-			return "Enero";
-		case 2:
-			return "Febrero";
-		case 3:
-			return "Marzo";
-		case 4:
-			return "Abril";
-		case 5:
-			return "Mayo";
-		case 6:
-			return "Junio";
-		case 7:
-			return "Julio";
-		case 8:
-			return "Agosto";
-		case 9:
-			return "Septiembre";
-		case 10:
-			return "Octubre";
-		case 11:
-			return "Noviembre";
-		case 12:
-			return "Diciembre";
-		default:
-			return "Mes inexistente";
-		}
-	}
-	
-	public void imprimirNombreMes(int mes) {
-		switch(mes) {
-		case 1:
-			System.out.println("El mes "+mes+" es enero.");
+			System.out.println(Calculadora.getNombreMes(mes));
 			break;
 		case 2:
-			System.out.println("El mes "+mes+" es febrero.");
+			System.out.println("Introduce un número entre el 1 y el 12.");
+			mes=s.nextInt();
+			String mesTexto=Calculadora.getNombreMes(mes);
+			int diasMes=Calculadora.getDiasMes(mesTexto);
+			System.out.println("El mes "+mes+" tiene "+diasMes+" días.");
+			System.out.println(Calculadora.getDiasMes(mesTexto));
 			break;
 		case 3:
-			System.out.println("El mes "+mes+" es marzo.");
+			System.out.println("Introduce un mes con la primera letra en mayúscula.");
+			String nombreMes=s.next();
+			diasMes=Calculadora.getDiasMes(nombreMes);
+			System.out.println("El mes "+nombreMes+" tiene "+diasMes+" días.");
 			break;
-		case 4:
-			System.out.println("El mes "+mes+" es abril.");
-			break;
-		case 5:
-			System.out.println("El mes "+mes+" es mayo.");
-			break;
-		case 6:
-			System.out.println("El mes "+mes+" es junio.");
-			break;
-		case 7:
-			System.out.println("El mes "+mes+" es julio.");
-			break;
-		case 8:
-			System.out.println("El mes "+mes+" es agosto.");
-			break;
-		case 9:
-			System.out.println("El mes "+mes+" es septiembre.");
-			break;
-		case 10:
-			System.out.println("El mes "+mes+" es octubre.");
-			break;
-		case 11:
-			System.out.println("El mes "+mes+" es noviembre.");
-			break;
-		case 12:
-			System.out.println("El mes "+mes+" es diciembre.");
-			break;
-		default:
-			System.out.println("No existe el mes número "+mes);
+			default:
+				System.out.println("Opción incorrecta");
 		}
 	}
 
